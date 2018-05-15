@@ -12,7 +12,7 @@ class Movie(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField()
     release_year = models.PositiveSmallIntegerField()
-    casting = models.ManytoManyField(Person)
-    directors = models.ManytoManyField(Person)
-    producers = models.ManytoManyField(Person)
+    casting = models.ManyToManyField(Person)
+    directors = models.ManyToManyField(Person)
+    producers = models.ManyToManyField(Person)
 
