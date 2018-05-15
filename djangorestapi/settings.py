@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'djangorestapi.movies.apps.MoviesConfig',
+    'rest_framework',
 
     # Django
     'django.contrib.admin',
