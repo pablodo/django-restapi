@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'movies.apps.MoviesConfig',
+    'djangorestapi.movies.apps.MoviesConfig',
 
     # Django
     'django.contrib.admin',
