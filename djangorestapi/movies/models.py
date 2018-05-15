@@ -2,17 +2,15 @@ from django.db import models
 
 
 class Person(models.Model):
-    id = models.AutoField(primary_key=True)
-    last_name = models.CharField()
-    first_name = models.CharField()
-    aliases = models.CharField()  # JSON with list of aliases
+    last_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    aliases = models.CharField(max_length=200)  # JSON with list of aliases
 
 
 class Movie(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField()
+    title = models.CharField(max_length=200)
     release_year = models.PositiveSmallIntegerField()
-    casting = models.ManyToManyField(Person)
-    directors = models.ManyToManyField(Person)
-    producers = models.ManyToManyField(Person)
+    casting = models.ManyToManyField(Person, related_name='movies_acted')
+    directors = models.ManyToManyField(Person, related_name='movies_directed')
+    producers = models.ManyToManyField(Person, related_name='movies_produced')
 
