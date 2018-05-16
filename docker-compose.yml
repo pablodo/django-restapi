@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  bash:
+    image: djangorestapi
+    volumes:
+      - .:/djangorestapi
+    working_dir: /djangorestapi
+    build:
+      dockerfile: Dockerfile
+      context: .
+    entrypoint: bash
+    
+  server:
+    extends:
+      file: docker-compose.yml
+      service: bash
+    ports:
+      - "8000:8000"
+    entrypoint: python manage.py runserver 0.0.0.0:8000
+
