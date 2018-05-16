@@ -21,7 +21,7 @@ from rest_framework import routers
 from .movies import views
 
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'movies', views.MovieViewSet)
 router.register(r'persons', views.PersonViewSet)
 
