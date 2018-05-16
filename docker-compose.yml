@@ -12,6 +12,12 @@ services:
       context: .
     entrypoint: bash
     
+  migrate:
+    extends:
+      file: docker-compose.yml
+      service: bash
+    entrypoint: python manage.py migrate
+
   server:
     extends:
       file: docker-compose.yml
