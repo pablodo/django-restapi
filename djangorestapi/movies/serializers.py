@@ -3,14 +3,14 @@ from rest_framework import serializers
 from . import models
 
 
-class PersonSerializer(serializers.ModelSerializer):
+class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Person
         fields = '__all__'
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Movie
