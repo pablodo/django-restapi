@@ -22,6 +22,7 @@ Open a browser and go to http://localhost:8000/api
 ### Setup
 ```
 $ docker-compose build server
+$ docker-compose run migrate
 ```
 
 ### Running (with docker-compose)
