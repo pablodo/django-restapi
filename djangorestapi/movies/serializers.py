@@ -1,13 +1,15 @@
 from rest_framework import serializers
+from drf_compound_fields import fields
 
 from . import models
 
 
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
+    aliases =  fields.ListOrItemField(serializers.CharField())
 
     class Meta:
         model = models.Person
-        fields = '__all__'
+        fields = ('first_name', 'last_name', 'aliases')  # Manually sorted
 
 
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
