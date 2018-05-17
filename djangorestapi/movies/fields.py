@@ -17,7 +17,7 @@ class BaseField(serializers.PrimaryKeyRelatedField):
         # it cannot be interpreted by `to_internal_value` because
         # it receives a string instead of the full object
         data = json_serializer([obj])
-        struct = json.loads(data)[0]
+        struct = json.loads(data)[0]['fields']
         return json.dumps(struct)
 
     def to_internal_value(self, data):
