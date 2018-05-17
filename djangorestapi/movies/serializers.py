@@ -13,8 +13,11 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('first_name', 'last_name', 'aliases')  # Manually sorted
 
 
-class MovieSerializer(serializers.HyperlinkedModelSerializer):
+class MovieSerializer(serializers.ModelSerializer):
     release_year_roman = serializers.CharField()
+    casting = serializers.StringRelatedField(allow_empty=False, many=True)
+    directors = serializers.StringRelatedField(allow_empty=False, many=True)
+    producers = serializers.StringRelatedField(allow_empty=False, many=True)
 
     class Meta:
         model = models.Movie
@@ -31,3 +34,4 @@ class MovieSerializer(serializers.HyperlinkedModelSerializer):
                 "Invalid year {0}. Cannot convert to roman number".format(year)
             )
         return data
+
