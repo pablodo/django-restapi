@@ -36,8 +36,13 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Movie
         fields = (
-            'id', 'title', 'release_year', 'release_year_roman',
-            'casting', 'directors', 'producers'
+            'id',
+            'title',
+            'release_year',
+            'release_year_roman',
+            'casting',
+            'directors',
+            'producers',
         )
 
     def validate(self, data):
