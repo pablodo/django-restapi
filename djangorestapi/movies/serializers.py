@@ -9,15 +9,26 @@ from . import fields
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField()
     aliases = drf_fields.ListOrItemField(serializers.CharField(), required=False)
+    movies_acted = fields.MovieField(many=True)
+    movies_directed = fields.MovieField(many=True)
+    movies_produced = fields.MovieField(many=True)
 
     class Meta:
         model = models.Person
-        fields = ('id', 'first_name', 'last_name', 'aliases')  # Manually sorted
+        fields = (  # Manually sorted
+            'id',
+            'first_name',
+            'last_name',
+            'aliases',
+            'movies_acted',
+            'movies_directed',
+            'movies_produced',
+        )
 
 
 class MovieSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
-    release_year_roman = serializers.CharField(required=False)
+    release_year_roman = serializers.ReadOnlyField(required=False)
     casting = fields.PersonField(many=True)
     directors = fields.PersonField(many=True)
     producers = fields.PersonField(many=True)
