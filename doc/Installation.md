@@ -6,6 +6,7 @@ $ pip3 install -r requirements.txt
 $ python3 manage.py migrate
 ```
 
+### Create an admin user
 You will need a super user for performing unsafe operations such as creating or deleting movies/persons.
 ```
 $ python3 manage.py createsuperuser --email superuser@myemail.com --username admin
