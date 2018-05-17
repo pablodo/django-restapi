@@ -6,11 +6,12 @@ from . import models
 
 
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
     aliases =  fields.ListOrItemField(serializers.CharField(), required=False)
 
     class Meta:
         model = models.Person
-        fields = ('first_name', 'last_name', 'aliases')  # Manually sorted
+        fields = ('id', 'first_name', 'last_name', 'aliases')  # Manually sorted
 
 
 class MovieSerializer(serializers.ModelSerializer):
