@@ -6,7 +6,7 @@ from . import models
 
 
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
-    aliases =  fields.ListOrItemField(serializers.CharField())
+    aliases =  fields.ListOrItemField(serializers.CharField(), required=False)
 
     class Meta:
         model = models.Person
