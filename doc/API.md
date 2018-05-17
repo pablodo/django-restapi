@@ -1,5 +1,7 @@
 # REST API
 
+**Note:** For methods that require authentication don't forget to create the superuser following [this](Installation.md#create-an-admin-user) instructions.
+
 ## Persons
 
 ### Create person (TODO: add auth)
