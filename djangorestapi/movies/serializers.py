@@ -9,9 +9,9 @@ from . import fields
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField()
     aliases = drf_fields.ListOrItemField(serializers.CharField(), required=False)
-    movies_acted = fields.MovieField(many=True)
-    movies_directed = fields.MovieField(many=True)
-    movies_produced = fields.MovieField(many=True)
+    movies_acted = fields.MovieField(many=True, required=False)
+    movies_directed = fields.MovieField(many=True, required=False)
+    movies_produced = fields.MovieField(many=True, required=False)
 
     class Meta:
         model = models.Person
