@@ -49,6 +49,18 @@ Enter host password for user 'admin':
 {"id":1,"first_name":"Heywood","last_name":"Allen","aliases":"Woody Allen","movies_acted":["{\"producers\": [1], \"release_year\": 1979, \"title\": \"Manhattan\", \"casting\": [1, 4], \"directors\": [1]}"],"movies_directed":["{\"producers\": [1], \"release_year\": 1979, \"title\": \"Manhattan\", \"casting\": [1, 4], \"directors\": [1]}"],"movies_produced":["{\"producers\": [1], \"release_year\": 1979, \"title\": \"Manhattan\", \"casting\": [1, 4], \"directors\": [1]}"]}
 ```
 
+## Delete person
+```
+$ curl -X DELETE http://localhost:8000/api/persons/4 -u admin
+Enter host password for user 'admin':
+```
+
+## Delete movie
+```
+$ curl -X DELETE http://localhost:8000/api/movies/1 -u admin
+Enter host password for user 'admin':
+```
+
 ## Update Movie
 ```
 $ curl -H "Content-Type: application/json" -X PUT -d '{"title": "Manhattan", "release_year": 1979, "directors": [1], "casting": [1, 4], "producers": [1]}' http://localhost:8000/api/movies/1 -u admin
