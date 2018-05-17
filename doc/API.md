@@ -3,10 +3,10 @@
 **Note:** For methods that require authentication don't forget to create the superuser following [this](Installation.md#create-an-admin-user) instructions.
 
 ## Endpoints
-Persons: `/api/persons`
-Person: `/api/person/<id>`
-Movies: `/api/movies`
-Movie: `/api/movies/<id>`
+* Persons: `/api/persons`
+* Person: `/api/person/<id>`
+* Movies: `/api/movies`
+* Movie: `/api/movies/<id>`
 
 
 ## Create person
