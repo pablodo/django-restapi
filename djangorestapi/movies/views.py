@@ -1,5 +1,6 @@
 from rest_framework import viewsets
-from rest_framework import authentication, permissions
+from rest_framework import authentication
+from rest_framework import permissions
 
 from . import serializers, models
 
