@@ -2,7 +2,7 @@
 
 Movies and people involved REST API.
 
-## Contents
+## Documentation
 
 * [Installation](doc/Installation.md)
 * [REST API](doc/API.md)
