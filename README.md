@@ -2,6 +2,11 @@
 
 Movies and people involved REST API.
 
+## Contents
+
+* [Installation](doc/Installation.md)
+* [REST API](doc/API.md)
+
 ## Problem
 
 A company that has a website about movies wants to provide its customers and users an API to query their database, as well as provide the trusted company users the ability to update or create new records.
