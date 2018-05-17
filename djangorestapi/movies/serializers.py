@@ -15,9 +15,9 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
 class MovieSerializer(serializers.ModelSerializer):
     release_year_roman = serializers.CharField()
-    casting = serializers.StringRelatedField(allow_empty=False, many=True)
-    directors = serializers.StringRelatedField(allow_empty=False, many=True)
-    producers = serializers.StringRelatedField(allow_empty=False, many=True)
+    casting = PersonSerializer(many=True)
+    directors = PersonSerializer(many=True)
+    producers = PersonSerializer(many=True)
 
     class Meta:
         model = models.Movie
