@@ -1,13 +1,14 @@
 from rest_framework import serializers
-from drf_compound_fields import fields
+from drf_compound_fields import fields as drf_fields
 import roman
 
 from . import models
+from . import fields
 
 
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField()
-    aliases =  fields.ListOrItemField(serializers.CharField(), required=False)
+    aliases = drf_fields.ListOrItemField(serializers.CharField(), required=False)
 
     class Meta:
         model = models.Person
@@ -16,10 +17,10 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
 class MovieSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
-    release_year_roman = serializers.CharField()
-    casting = PersonSerializer(many=True)
-    directors = PersonSerializer(many=True)
-    producers = PersonSerializer(many=True)
+    release_year_roman = serializers.CharField(required=False)
+    casting = fields.PersonField(many=True)
+    directors = fields.PersonField(many=True)
+    producers = fields.PersonField(many=True)
 
     class Meta:
         model = models.Movie
@@ -31,7 +32,7 @@ class MovieSerializer(serializers.ModelSerializer):
     def validate(self, data):
         year = data['release_year']
         try:
-            data['release_year_roman'] = roman.fromRoman(year)
+            roman.toRoman(year)
         except roman.InvalidRomanNumeralError:
             raise serializers.ValidationError(
                 "Invalid year {0}. Cannot convert to roman number".format(year)
