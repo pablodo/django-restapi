@@ -15,6 +15,7 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class MovieSerializer(serializers.ModelSerializer):
+    id = serializers.ReadOnlyField()
     release_year_roman = serializers.CharField()
     casting = PersonSerializer(many=True)
     directors = PersonSerializer(many=True)
@@ -23,7 +24,7 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Movie
         fields = (
-            'title', 'release_year', 'release_year_roman', 'casting', 'directors', 'producers'
+            'id', 'title', 'release_year', 'release_year_roman', 'casting', 'directors', 'producers'
         )
 
     def validate(self, data):
