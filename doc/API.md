@@ -2,11 +2,11 @@
 
 **Note:** For methods that require authentication don't forget to create the superuser following [this](Installation.md#create-an-admin-user) instructions.
 
-## Endpoints
-* Persons: `/api/persons`
-* Person: `/api/person/<id>`
-* Movies: `/api/movies`
-* Movie: `/api/movies/<id>`
+## Endpoints and supported methods
+* Persons: `/api/persons` supports `GET`, `HEAD`, `POST`, `OPTIONS` 
+* Person: `/api/person/<id>` supports `GET`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`
+* Movies: `/api/movies` supports `GET`, `HEAD`, `POST`, `OPTIONS`
+* Movie: `/api/movies/<id>` supports `GET`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`
 
 
 ## Create person
